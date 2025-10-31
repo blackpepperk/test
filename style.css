@@ -1,0 +1,107 @@
+/* 기본 스타일 */
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    min-height: 100vh; /* 모바일 최적화 */
+}
+
+/* 입력 필드 스타일 */
+.input-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 20px;
+    width: 90%;
+    max-width: 600px;
+}
+
+.item-input {
+    flex-grow: 1;
+    margin: 5px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* 룰렛판 스타일 */
+.roulette-wrapper {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    margin: 30px 0;
+}
+
+.roulette-wheel {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+    /* CSS 애니메이션을 JS에서 제어 */
+    transition: transform 5s cubic-bezier(0.2, 0.8, 0.7, 0.99); /* 부드러운 가속/감속 효과 */
+}
+
+.pointer {
+    position: absolute;
+    top: -10px; /* 룰렛판 위쪽에 위치 */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 20px solid red; /* 빨간색 지시 화살표 */
+    z-index: 10;
+}
+
+/* 룰렛 섹션 스타일 (JS에서 동적으로 생성) */
+.roulette-section {
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    top: 0;
+    left: 50%;
+    transform-origin: 0% 100%; /* 중심점 설정 */
+    border: 1px solid #000;
+}
+
+.section-text {
+    position: absolute;
+    top: 5px;
+    left: 50%;
+    transform: translateX(-50%) rotate(90deg); /* 텍스트를 옆으로 회전 */
+    width: 100%;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+}
+
+/* 버튼 스타일 */
+#spin-button {
+    padding: 15px 30px;
+    font-size: 1.2em;
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+    background-color: #007bff;
+    color: white;
+}
+
+/* 4. 모바일 최적화를 위한 미디어 쿼리 */
+@media (max-width: 600px) {
+    .roulette-wrapper {
+        width: 250px;
+        height: 250px;
+    }
+
+    .input-container {
+        flex-direction: column;
+    }
+
+    .item-input {
+        width: 100%;
+    }
+}
